@@ -1,4 +1,4 @@
-package calculator;
+package demo.calculator;
 
     import org.chorusbdd.chorus.annotations.*;
     import org.chorusbdd.chorus.util.assertion.ChorusAssert;
@@ -8,12 +8,12 @@ package calculator;
 
         private Calculator calc = new Calculator();
 
-        @Step("I have entered ([0-9]*) into the calculator")
+        @Step("I enter (\\d+) into the calculator")
         public void enterNumber(Double number) {
             calc.enterNumber(number);
         }
 
-        @Step("I press (.*)")
+        @Step("I press (add|subtract)")
         public void enterOperator(String operator) {
             if ("add".equalsIgnoreCase(operator)) {
                 calc.press(Calculator.Operator.ADD);
@@ -21,12 +21,9 @@ package calculator;
             else if ("subtract".equalsIgnoreCase(operator)) {
                 calc.press(Calculator.Operator.SUBTRACT);
             }
-            else {
-                ChorusAssert.fail("Operator not recognised: " + operator);
-            }
         }
 
-        @Step("the result should be ([0-9]*).*")
+        @Step("the result should be (\\d+).*")
         public void checkCalculation(double expectedResult) {
             ChorusAssert.assertEquals(expectedResult, calc.getResult());
         }

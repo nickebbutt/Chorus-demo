@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 public class AllChorusTests {
 
     public static String getChorusArgs() {
-        return "-f src -h calculator -c";
+        return "-f src -h demo -c";
     }
 
 }

@@ -1,8 +1,10 @@
-package calculator;
+package demo.calculator;
 
 import java.util.Stack;
 
 public class Calculator {
+
+    private Operator operator;
 
     public enum Operator {
         ADD, SUBTRACT, MULTIPLY, DIVIDE
@@ -10,33 +12,45 @@ public class Calculator {
 
     private Stack<Double> stack = new Stack<Double>();
 
-    private double lastResult = 0;
-
     public void enterNumber(Double number) {
         stack.push(number);
     }
 
     public void press(Operator operator) {
-        double d2 = stack.pop();
-        double d1 = stack.pop();
-
-        switch (operator) {
-            case ADD:
-                lastResult = d1 + d2;
-                break;
-            case SUBTRACT:
-                lastResult = d1 - d2;
-                break;
-            case MULTIPLY:
-                lastResult = d1 * d2;
-                break;
-            case DIVIDE:
-                lastResult = d1 / d2;
-                break;
-        }
+        this.operator = operator;
     }
 
     public double getResult() {
-        return lastResult;
+        checkInputs();
+        double d2 = stack.pop();
+        double d1 = stack.pop();
+
+        double result = Double.NaN;
+        switch (operator) {
+            case ADD:
+                result = d1 + d2;
+                break;
+            case SUBTRACT:
+                result = d1 - d2;
+                break;
+            case MULTIPLY:
+                result = d1 * d2;
+                break;
+            case DIVIDE:
+                result = d1 / d2;
+                break;
+        }
+        reset();
+        return result;
+    }
+
+    private void checkInputs() {
+        assert (operator != null);
+        assert (stack.size() == 2);
+    }
+
+    private void reset() {
+        operator = null;
+        stack.empty();
     }
 }
