@@ -27,26 +27,29 @@
  *  the Software, or for combinations of the Software with other software or
  *  hardware.
  */
-package demo.remoting;
+package demo.processes.processoutput;
 
-import org.chorusbdd.chorus.annotations.Handler;
-import org.chorusbdd.chorus.annotations.Step;
-import org.chorusbdd.chorus.util.assertion.ChorusAssert;
-
+import java.io.BufferedReader;
+import java.io.Console;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * Created by IntelliJ IDEA.
  * User: Nick Ebbutt
- * Date: 14/06/12
- * Time: 09:21
+ * Date: 04/07/12
+ * Time: 09:16
  */
-@Handler("Start A Process")
-public class StartAProcessHandler extends ChorusAssert {
+public class ProcessOutputAndInput {
 
-    @Step("I can call a step")
-    public void isWorkingProperly() {
-        System.out.println("Hello");
+    public static void main(String[] args) throws InterruptedException, IOException {
+        System.out.println("Woohoo, we have started a process");
+        Thread.sleep(1000);
+        System.out.println("Match this output");
+        Thread.sleep(500);
+        String line = new BufferedReader(new InputStreamReader(System.in)).readLine();
+        System.out.println("Input was " + line);
+        System.err.println("Invalid input");
     }
 
 }
