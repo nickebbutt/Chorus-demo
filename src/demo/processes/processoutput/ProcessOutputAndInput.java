@@ -49,7 +49,8 @@ public class ProcessOutputAndInput {
         Thread.sleep(500);
         String line = new BufferedReader(new InputStreamReader(System.in)).readLine();
         System.out.println("Input was " + line);
-        System.err.println("Invalid input");
+        //echo it back on the std err stream
+        System.err.println(line);
     }
 
 }
