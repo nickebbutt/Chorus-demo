@@ -4,7 +4,7 @@ Uses: Remoting
 Feature: Run steps on a process over the network
 
   Test that we can use the Jmx exporter to export a handler from a process and call steps on
-  that handler using Remoting
+  that handler using Chorus' Remoting
 
   We will start our own process on localhost to demonstrate this
 

@@ -1,6 +1,7 @@
 
 Feature: Calculator
-  You should put a description of the feature under test here
+
+  This example demonstrates a simple feature which tests the Calculator class
   In this test we'll check our Calculator can add and subtract numbers
 
   Scenario: Add two numbers
@@ -14,7 +15,4 @@ Feature: Calculator
     When I press subtract
     And I enter 50 into the calculator
     Then the result should be 50
-
-
-
 
