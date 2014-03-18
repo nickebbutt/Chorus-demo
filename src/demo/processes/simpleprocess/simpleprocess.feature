@@ -1,6 +1,6 @@
 Uses: Processes
 
-Feature: Start A Java Process
+Feature: Start A Process
 
   Test that we can use the Processes handler to start a process
   The config settings for simpleProcess are defined in simpleprocess.properties
@@ -9,7 +9,7 @@ Feature: Start A Java Process
   Any processes started will be automatically shut down at the end of each scenario.
   To connect to / run steps on started processes see the remoting examples.
 
-  Scenario: Start a Single Java Process
+  Scenario: Start a Single Process
     Given I start a simpleProcess process named myProcess
     Then the process myProcess is running
 
