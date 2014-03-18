@@ -3,7 +3,7 @@ Uses: Processes
 Feature: Start A Java Process
 
   Test that we can use the Processes handler to start a process
-  The config settings for simpleProcess are defined in startaprocess.properties
+  The config settings for simpleProcess are defined in simpleprocess.properties
   We are starting a Java process using the main class StartAProcess
   This will use the same JVM and classpath as the interpreter unless overridden in properties
   Any processes started will be automatically shut down at the end of each scenario.

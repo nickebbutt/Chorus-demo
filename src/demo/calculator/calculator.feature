@@ -8,11 +8,11 @@ Feature: Calculator
     Given I enter 50 into the calculator
     When I press add
     And I enter 70 into the calculator
-    Then the result should be 120
+    Then the result is 120
 
   Scenario: I subtract a number
     Given I enter 100 into the calculator
     When I press subtract
     And I enter 50 into the calculator
-    Then the result should be 50
+    Then the result is 50
 

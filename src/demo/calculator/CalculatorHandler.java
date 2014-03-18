@@ -23,7 +23,7 @@ package demo.calculator;
             }
         }
 
-        @Step("the result (?:is|should be) (\\d+).*")
+        @Step("the result is (\\d+).*")
         public void checkCalculation(double expectedResult) {
             ChorusAssert.assertEquals(expectedResult, calc.getResult());
         }
