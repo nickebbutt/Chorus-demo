@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="ChorusDemo" default="all" basedir=".">
+
+    <property name="dir.main.src" value="src"/>
+    <property name="dir.main.build" value="target/java/classes"/>
+    <property name="dir.main.libs" value="lib"/>
+
+    <property name="dir.reports" value="target/test/reports"/>
+    <property name="chorusConsoleMode" value="false"/>
+
+    <path id="classpath">
+        <pathelement location="${dir.main.build}"/>
+        <fileset dir="${dir.main.libs}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <target name="clean"
+            description="Remove the generated files">
+        <delete dir="target"/>
+    </target>
+
+    <target name="prepare">
+        <mkdir dir="${dir.main.build}"/>
+        <mkdir dir="${dir.reports}"/>
+    </target>
+
+    <target name="build"
+            depends="prepare"
+            description="Build main source code">
+        <javac destdir="${dir.main.build}"
+               includeAntRuntime="false"
+               debug="true"
+               nowarn="true">
+            <src path="${dir.main.src}"/>
+            <classpath refid="classpath"/>
+            <compilerarg value="-XDignore.symbol.file"/>
+        </javac>
+    </target>
+
+
+    <target name="test"
+            depends="build"
+            description="Chorus Tests">
+
+        <!-- set the name of the test classes for includes -->
+        <property name="testclasses" value="*Test*"/>
+
+        <junit haltonfailure="true" haltonerror="true" printsummary="withOutAndErr" fork="true" showoutput="true">
+            <syspropertyset id="properties-starting-with-chorus">
+                <propertyref prefix="chorus"/>
+            </syspropertyset>
+
+            <classpath>
+                <fileset dir="${dir.main.libs}" includes="**/*.jar"/>
+                <pathelement location="${dir.main.build}"/>
+            </classpath>
+            <batchtest todir="${dir.reports}">
+                <fileset dir="${dir.main.build}" includes="${testclasses}"/>
+                <formatter type="xml" usefile="true"/>
+            </batchtest>
+        </junit>
+
+        <!-- also produce a report on the junit results -->
+        <junitreport todir="${dir.reports}">
+            <fileset dir="${dir.reports}">
+                <include name="*.xml"/>
+            </fileset>
+            <report format="frames" todir="${dir.reports}"/>
+        </junitreport>
+    </target>
+
+    <target name="all" depends="clean, build, test"/>
+
+</project>
