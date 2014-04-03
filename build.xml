@@ -8,6 +8,8 @@
     <property name="dir.reports" value="target/test/reports"/>
     <property name="chorusConsoleMode" value="false"/>
 
+    <property name="chorusVersion" value="1.6.3"/>
+
     <path id="classpath">
         <pathelement location="${dir.main.build}"/>
         <fileset dir="${dir.main.libs}">
@@ -25,8 +27,21 @@
         <mkdir dir="${dir.reports}"/>
     </target>
 
+    <target name="fetchLibs">
+
+        <get src="http://github.com/Chorus-bdd/Chorus/wiki/Resources/${chorusVersion}/chorus-${chorusVersion}.jar"
+             skipexisting="true" dest="${dir.main.libs}" maxtime="60"/>
+        <get src="http://github.com/Chorus-bdd/Chorus/wiki/Resources/${chorusVersion}/chorus-${chorusVersion}-sources.jar"
+             skipexisting="true" dest="${dir.main.libs}" maxtime="60"/>
+        <get src="http://github.com/Chorus-bdd/Chorus/wiki/Resources/${chorusVersion}/chorus-spring-${chorusVersion}.jar"
+             skipexisting="true" dest="${dir.main.libs}" maxtime="60"/>
+        <get src="http://github.com/Chorus-bdd/Chorus/wiki/Resources/${chorusVersion}/chorus-spring-${chorusVersion}-sources.jar"
+             skipexisting="true" dest="${dir.main.libs}" maxtime="60"/>
+
+    </target>
+
     <target name="build"
-            depends="prepare"
+            depends="prepare, fetchLibs"
             description="Build main source code">
         <javac destdir="${dir.main.build}"
                includeAntRuntime="false"
