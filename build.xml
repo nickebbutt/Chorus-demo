@@ -22,13 +22,12 @@
         <delete dir="target"/>
     </target>
 
-    <target name="prepare">
+    <target name="prepare" depends="checkLibs">
         <mkdir dir="${dir.main.build}"/>
         <mkdir dir="${dir.reports}"/>
     </target>
 
     <target name="fetchLibs">
-
         <get src="http://central.maven.org/maven2/org/chorusbdd/chorus/${chorusVersion}/chorus-${chorusVersion}.jar"
              skipexisting="true" dest="${dir.main.libs}" maxtime="60" verbose="true"/>
         <get src="http://central.maven.org/maven2/org/chorusbdd/chorus/${chorusVersion}/chorus-${chorusVersion}-sources.jar"
@@ -41,11 +40,25 @@
              skipexisting="true" dest="${dir.main.libs}" maxtime="60" verbose="true"/>
         <get src="http://central.maven.org/maven2/junit/junit/4.10/junit-4.10-sources.jar"
              skipexisting="true" dest="${dir.main.libs}" maxtime="60" verbose="true"/>
+    </target>
 
+    <target name="checkLibs">
+        <condition property="has-libs">
+            <and>
+                <available file="lib/chorus-${chorusVersion}.jar"/>
+                <available file="lib/chorus-spring-${chorusVersion}.jar"/>
+                <available file="lib/junit-4.10.jar"/>
+            </and>
+        </condition>
+        <fail message="Mising libraries in lib dir.
+        First run 'fetchLibs' to download from Maven.
+        Required - chorus-${chorusVersion}.jar, chorus-spring-${chorusVersion}.jar, junit-4.10.jar.
+        Or see https://github.com/Chorus-bdd/Chorus/wiki/Download"
+        unless="${checkLibs}"/>
     </target>
 
     <target name="build"
-            depends="prepare, fetchLibs"
+            depends="prepare"
             description="Build main source code">
         <javac destdir="${dir.main.build}"
                includeAntRuntime="false"
