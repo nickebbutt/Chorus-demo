@@ -2,6 +2,10 @@ Chorus-demo
 ===========
 
 Some simple Chorus examples
+
+These are best run as a JUnit test suite 
+(Chorus includes a JUnit runner which presents Chorus features as JUnit tests)
+
 To run these, either:
 
 - Run the JUnit suite AllChorusTests.java from your IDE with JUnit support
