@@ -5,7 +5,10 @@ Feature: Start Process and wait for Output
 
   This example demonstrates Chorus' ability to start a process search/match patterns against its standard
   output or error streams
+
   Chorus can also write to the process' input stream
+
+  Processes started
 
   #! Processes start myProcess
   Scenario: Start a process and read output

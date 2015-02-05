@@ -3,11 +3,16 @@ Uses: Processes
 Feature: Start A Process
 
   Test that we can use the Processes handler to start a process
+
   The config settings for simpleProcess are defined in simpleprocess.properties
   We are starting a Java process using the main class StartAProcess
-  This will use the same JVM and classpath as the interpreter unless overridden in properties
-  Any processes started will be automatically shut down at the end of each scenario.
-  To connect to / run steps on started processes see the remoting examples.
+
+  Started processes will use the same JVM and classpath as the interpreter unless overridden in properties
+
+  Processes started will be automatically shut down at the end of each scenario, unless a process is configured to use
+  'feature' scope, in which case a process will be terminated at the end of the feature
+
+  To see how to run steps on a process, see the
 
   #! Processes start simpleProcess
   Scenario: Start a Single Process

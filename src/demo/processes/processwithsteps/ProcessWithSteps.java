@@ -27,23 +27,26 @@
  *  the Software, or for combinations of the Software with other software or
  *  hardware.
  */
-package demo.remoting;
+package demo.processes.processwithsteps;
 
-import org.chorusbdd.chorus.annotations.Handler;
-import org.chorusbdd.chorus.annotations.Step;
-import org.chorusbdd.chorus.util.assertion.ChorusAssert;
+import org.chorusbdd.chorus.remoting.jmx.ChorusHandlerJmxExporter;
 
 /**
  * Created by IntelliJ IDEA.
  * User: Nick Ebbutt
- * Date: 14/06/12
- * Time: 09:21
+ * Date: 04/07/12
+ * Time: 09:16
  */
-@Handler("RemoteHandler")
-public class RemoteHandler extends ChorusAssert {
+public class ProcessWithSteps {
 
-    @Step(".*call a step method which has been exported")
-    public String canCallAMethod() {
-        return "Hello from remote process!!";
+    public static void main(String[] args) throws InterruptedException {
+        //export a handler so we can call a step on it
+        ProcessWithStepsHandler handler = new ProcessWithStepsHandler();
+        ChorusHandlerJmxExporter exporter = new ChorusHandlerJmxExporter(handler);
+        exporter.export();
+
+        Thread.sleep(60000);
+        //keep running so we can test the connectivity
     }
+
 }
