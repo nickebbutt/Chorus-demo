@@ -45,16 +45,18 @@
     <target name="checkLibs">
         <condition property="has-libs">
             <and>
-                <available file="lib/chorus-${chorusVersion}.jar"/>
-                <available file="lib/chorus-spring-${chorusVersion}.jar"/>
-                <available file="lib/junit-4.10.jar"/>
+                <available file="${dir.main.libs}/chorus-${chorusVersion}.jar"/>
+                <available file="${dir.main.libs}/chorus-spring-${chorusVersion}.jar"/>
+                <available file="${dir.main.libs}/junit-4.10.jar"/>
             </and>
         </condition>
+
         <fail message="Mising libraries in lib dir.
-        First run 'fetchLibs' to download from Maven.
+        First run 'fetchLibs' to download from Maven central repo
+        In case of proxy server issues download the following jars into the lib directory using your browser
         Required - chorus-${chorusVersion}.jar, chorus-spring-${chorusVersion}.jar, junit-4.10.jar.
         Or see https://github.com/Chorus-bdd/Chorus/wiki/Download"
-        unless="${checkLibs}"/>
+        unless="${has-libs}"/>
     </target>
 
     <target name="build"
