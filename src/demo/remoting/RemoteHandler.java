@@ -42,7 +42,7 @@ import org.chorusbdd.chorus.util.assertion.ChorusAssert;
 @Handler("RemoteHandler")
 public class RemoteHandler extends ChorusAssert {
 
-    @Step("I call a step method which has been exported")
+    @Step(".*call a step method which has been exported")
     public String canCallAMethod() {
         return "Hello from remote process!!";
     }

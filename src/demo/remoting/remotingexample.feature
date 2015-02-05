@@ -14,9 +14,10 @@ Feature: Run steps over the Network
   a) properties for the Processes handler to start the process
   b) a property to tell the Remoting handler where to connect in order to locate and run the steps.
 
+  #! Processes start remoteProcess
+  #! Processes connect remoteProcess
   Scenario: Call An Exported Method
-    First I start a remoteProcess process
-    Then I call a step method which has been exported in remoteProcess
+    Check I can call a step method which has been exported
 
 
 

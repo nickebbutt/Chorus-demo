@@ -9,10 +9,9 @@ Feature: Start A Process
   Any processes started will be automatically shut down at the end of each scenario.
   To connect to / run steps on started processes see the remoting examples.
 
+  #! Processes start simpleProcess
   Scenario: Start a Single Process
-    Given I start a simpleProcess process named myProcess
-    Then the process myProcess is running
-
+    Check the process simpleProcess is running
 
   Scenario: Start the simpleProcess configuration twice
     Given I start a simpleProcess process named myProcess
