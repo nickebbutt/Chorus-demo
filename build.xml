@@ -8,7 +8,7 @@
     <property name="dir.reports" value="target/test/reports"/>
     <property name="chorusConsoleMode" value="false"/>
 
-    <property name="chorusVersion" value="2.0.0.rc3"/>
+    <property name="chorusVersion" value="2.0.0"/>
 
     <path id="classpath">
         <pathelement location="${dir.main.build}"/>
