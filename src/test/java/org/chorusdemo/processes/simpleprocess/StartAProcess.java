@@ -27,7 +27,7 @@
  *  the Software, or for combinations of the Software with other software or
  *  hardware.
  */
-package demo.processes.simpleprocess;
+package org.chorusdemo.processes.simpleprocess;
 
 /**
  * Created by IntelliJ IDEA.

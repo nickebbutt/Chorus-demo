@@ -14,7 +14,7 @@ Feature: Start Process and wait for Output
   Scenario: Start a process and read output
     Given the process myProcess is running
     And I read the line 'Match .*' from the myProcess process
-    Then I show variable ProcessesHandler.match
+    Then I show the context variable ProcessesHandler.match
 
   #! Processes start myProcess
   Scenario: Send input to a process

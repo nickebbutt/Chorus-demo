@@ -1,4 +1,4 @@
-package demo.featurestart;
+package org.chorusdemo.featurestart;
 
 import org.chorusbdd.chorus.annotations.Handler;
 import org.chorusbdd.chorus.annotations.Step;

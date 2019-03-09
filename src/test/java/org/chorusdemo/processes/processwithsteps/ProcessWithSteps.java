@@ -27,11 +27,9 @@
  *  the Software, or for combinations of the Software with other software or
  *  hardware.
  */
-package demo.processes.processoutput;
+package org.chorusdemo.processes.processwithsteps;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import org.chorusbdd.chorus.remoting.jmx.ChorusHandlerJmxExporter;
 
 /**
  * Created by IntelliJ IDEA.
@@ -39,17 +37,16 @@ import java.io.InputStreamReader;
  * Date: 04/07/12
  * Time: 09:16
  */
-public class ProcessOutputAndInput {
+public class ProcessWithSteps {
 
-    public static void main(String[] args) throws InterruptedException, IOException {
-        System.out.println("Woohoo, we have started a process");
-        Thread.sleep(1000);
-        System.out.println("Match this output");
-        Thread.sleep(500);
-        String line = new BufferedReader(new InputStreamReader(System.in)).readLine();
-        System.out.println("Input was " + line);
-        //echo it back on the std err stream
-        System.err.println(line);
+    public static void main(String[] args) throws InterruptedException {
+        //export a handler so we can call a step on it
+        ProcessWithStepsHandler handler = new ProcessWithStepsHandler();
+        ChorusHandlerJmxExporter exporter = new ChorusHandlerJmxExporter(handler);
+        exporter.export();
+
+        Thread.sleep(60000);
+        //keep running so we can test the connectivity
     }
 
 }
