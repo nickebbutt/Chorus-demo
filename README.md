@@ -1,6 +1,7 @@
 Chorus-demo
 ===========
 
+[![Build Status](https://travis-ci.org/Chorus-bdd/Chorus-demo.svg?branch=master)](https://travis-ci.org/Chorus-bdd/Chorus-demo)
 
 This repository contains some simple Chorus examples which can be used as a starting point for your own features
 
@@ -11,7 +12,11 @@ The Chorus demo runs with the [Gradle build tool](https://docs.gradle.org/curren
 Version 5.2.1 of the gradle wrapper is included in the project
 If you check out the project and run
 
-`gradle build` 
+`gradlew build` 
+
+or on Windows..
+
+`gradlew.bat build`
 
 This should download gradle, download chorus-3.1.0 (which is a test dependency in build.gradle), build all the java classes and run the tests
 
