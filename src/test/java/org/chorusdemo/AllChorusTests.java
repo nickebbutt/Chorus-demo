@@ -14,8 +14,8 @@ public class AllChorusTests {
 
     public static String getChorusArgs() {
         return "-f src/test/java " +     //find feature files under src beneath the working directory
-                "-h org.chorusdemo " +
-                "-c ";          //use console mode for output
+                "-h org.chorusdemo " ;
+//                "-c ";          //use console mode
 
     }
 
