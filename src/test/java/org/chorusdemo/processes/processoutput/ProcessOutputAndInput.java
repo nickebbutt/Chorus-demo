@@ -27,23 +27,29 @@
  *  the Software, or for combinations of the Software with other software or
  *  hardware.
  */
-package demo.processes.processwithsteps;
+package org.chorusdemo.processes.processoutput;
 
-import org.chorusbdd.chorus.annotations.Handler;
-import org.chorusbdd.chorus.annotations.Step;
-import org.chorusbdd.chorus.util.assertion.ChorusAssert;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * Created by IntelliJ IDEA.
  * User: Nick Ebbutt
- * Date: 14/06/12
- * Time: 09:21
+ * Date: 04/07/12
+ * Time: 09:16
  */
-@Handler("ProcessWithStepsHandler")
-public class ProcessWithStepsHandler extends ChorusAssert {
+public class ProcessOutputAndInput {
 
-    @Step(".*call a step method which has been exported")
-    public String canCallAMethod() {
-        return "Hello from process!!";
+    public static void main(String[] args) throws InterruptedException, IOException {
+        System.out.println("Woohoo, we have started a process");
+        Thread.sleep(1000);
+        System.out.println("Match this output");
+        Thread.sleep(500);
+        String line = new BufferedReader(new InputStreamReader(System.in)).readLine();
+        System.out.println("Input was " + line);
+        //echo it back on the std err stream
+        System.err.println(line);
     }
+
 }

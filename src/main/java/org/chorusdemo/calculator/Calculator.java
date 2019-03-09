@@ -1,4 +1,4 @@
-package demo.calculator;
+package org.chorusdemo.calculator;
 
 import java.util.Stack;
 

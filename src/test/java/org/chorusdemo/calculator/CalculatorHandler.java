@@ -1,9 +1,9 @@
-package demo.calculator;
+package org.chorusdemo.calculator;
 
     import org.chorusbdd.chorus.annotations.*;
     import org.chorusbdd.chorus.util.assertion.ChorusAssert;
 
-    @Handler("Calculator")
+@Handler("Calculator")
     public class CalculatorHandler {
 
         private Calculator calc = new Calculator();

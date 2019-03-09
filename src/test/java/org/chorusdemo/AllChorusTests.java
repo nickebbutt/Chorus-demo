@@ -1,3 +1,5 @@
+package org.chorusdemo;
+
 import org.chorusbdd.chorus.ChorusSuite;
 import org.junit.runner.RunWith;
 
@@ -11,9 +13,9 @@ import org.junit.runner.RunWith;
 public class AllChorusTests {
 
     public static String getChorusArgs() {
-        return "-f src " +     //find feature files under src beneath the working directory
-               "-h demo " +    //find handler classes in packages starting with demo
-               "-c ";          //use console mode for output
+        return "-f src/test/java " +     //find feature files under src beneath the working directory
+                "-h org.chorusdemo " +
+                "-c ";          //use console mode for output
 
     }
 
