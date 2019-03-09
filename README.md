@@ -29,10 +29,10 @@ The Chorus interpreter is invoked as a JUnit test suite
 The class org.chorusdemo.AllChorusTests contains a JUnit suite definition
 
 
-## Note for Intellij IDEA users
+#### Note for Intellij IDEA users
 
-Version 5.2.1 is a recent version of gradle (in March 2019!) and older Intellij IDEA versions may have problems with it
-If you are having any issues with intellij loading the gradle project, you can either downgrade the gradle wrapper, or try a current version of IDEA
+Version 5.2.1 is a recent version of gradle (as of March 2019!) and older Intellij IDEA versions may have problems with it
+If you are having any issues with Intellij loading the gradle project, you can either downgrade the gradle wrapper, or try a current version of IDEA
 
 
 
